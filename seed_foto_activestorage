@@ -1,12 +1,22 @@
-# Crea users con foto de thispersondoesntexist y las guarda en campo photo de activestorage
 require 'open-uri'
 
+puts 'Creando 50 ususarios con fotos en activestorage...'
+
 50.times do
-  user = Upload.create!(
-  email: Faker::Internet.safe_email,
-  password: '123123', # needs to be 6 digits,
-  # add any additional attributes you have on your model
-)
-file = URI.open('https://thispersondoesnotexist.com/image')
-user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
+  user = User.create(
+    firstname: Faker::Name.first_name,
+    lastname: Faker::Name.last_name,
+    role: rand(0..1),
+    phone: Faker::PhoneNumber.cell_phone,
+    website: Faker::Internet.url,
+    description: Faker::Lorem.paragraph(sentence_count: 3),
+    email: Faker::Internet.email,
+    password: '123456' # needs to be 6 digits
+    # add any additional attributes you have on your model
+  )
+
+  file = URI.open('https://thispersondoesnotexist.com/')
+  user.photo.attach(io: file, filename: 'photo.jpg', content_type: 'image/jpg')
 end
+
+puts '50 usuarios con fotos creados con éxito!'
