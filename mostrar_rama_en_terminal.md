@@ -12,3 +12,9 @@ else
     PS1="${debian_chroot:+($debian_chroot)}\u@\h:\w \$(show_git_branch)\$ "
 fi
 ```
+
+## luego ejecutar
+
+```bash
+source ~/.bashrc
+```
