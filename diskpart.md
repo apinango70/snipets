@@ -27,20 +27,31 @@ create partition primary
 ```
 
 ## para establecer el sistema de archivos y la etiqueta de volumen.
+
+```bash
 format override fs=NTFS quick label="MicroSD"
 ```
  
 ## para ver todos los volúmenes de los Dispositivos de almacenamiento disponibles.
+
+```bash
 list volume
 ```
 
 ## seleccionar el volumen recién etiquetado.
+
+```bash
 select volume #
 ```
 
 ## asignar una nueva letra al volumen.
+
+```bash
 assign letter=#
+```
 
 ## para ver la nueva letra asignada al nuevo volumen.
+
+```bash
 list volume
 ```
